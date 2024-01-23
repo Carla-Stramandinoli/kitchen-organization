@@ -4,6 +4,8 @@ import { ThemeProvider } from '@emotion/react';
 import appFirebase from '../firebase/config';
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 import Swal from 'sweetalert2';
+import styled from "@emotion/styled";
+
 
 const auth = getAuth(appFirebase);
 
@@ -65,14 +67,14 @@ function LoginContainer() {
                             id="password"
                             autoComplete="current-password"
                         />
-                        <Button
+                        <CustomButton
                             type="submit"
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
                            {record ? "Registrate" : "Inicia sesion"}
-                        </Button>
+                        </CustomButton>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
@@ -93,3 +95,12 @@ function LoginContainer() {
 }
 
 export default LoginContainer;
+
+const CustomButton = styled(Button)({
+    backgroundColor: "#B3B3F1",
+    color: "white",
+    fontSize: "18px",
+    "&:hover": {
+        backgroundColor: "#B3B3F1",
+      }
+})
